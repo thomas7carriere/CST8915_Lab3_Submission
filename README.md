@@ -18,3 +18,5 @@ Reflection Questions:
   
 - Why is it important to use environment variables for configurations in a cloud environment?
 - It follows the 12-Factor app for creating cloud friendly applications. Removes the need for hard-coding variables in the environment, which poses security and maintainability issues. Also allows us to configure different configuration details depending on whether we are deploying for development or production for example.
+
+Challenges: I had forgotten to add an inbound port rule on the NSG of the RabbitMQ VM for Port 5672, which stopped the order-service and RabbitMQ from being able to communicate. I also chose Python 3.14 as the run-time stack for Produce-Service App. This caused issues as I had dependencies that were not yet supported by 3.14, so in the GitHub action I had to change a release value to 3.11.
